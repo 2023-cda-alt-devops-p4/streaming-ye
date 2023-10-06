@@ -77,6 +77,38 @@ ORDER BY Id_actors DESC
 LIMIT 3;
 
 
+##  Procedure
+
+DELIMITER //
+CREATE PROCEDURE ListMoviesByDirector(IN directorName VARCHAR(50))
+BEGIN
+  SELECT movies.title, movies.releaseDate
+  FROM movies
+  INNER JOIN directs ON movies.Id_movies = directs.Id_movies
+  INNER JOIN directors ON directs.Id_directors = directors.Id_directors
+  WHERE directors.lastName = directorName;
+END;
+//
+DELIMITER ;
+
+CALL ListMoviesByDirector('Nom du réalisateur');
+
+DELIMITER //
+CREATE TRIGGER UserUpdateTrigger
+AFTER UPDATE ON users
+FOR EACH ROW
+BEGIN
+  INSERT INTO archives (updateDate, id_users, oldvalue, newvalue)
+  VALUES (NOW(), NEW.Id_users, JSON_OBJECT('firstName', OLD.firstName, 'lastName', OLD.lastName, 'email', OLD.email), JSON_OBJECT('firstName', NEW.firstName, 'lastName', NEW.lastName, 'email', NEW.email));
+END;
+//
+DELIMITER ;
+
+
+# Docker Hub 
+
+docker pull yassineelz/streaming-image-ye
+
 
 
 
