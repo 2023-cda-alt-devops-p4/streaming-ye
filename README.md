@@ -28,16 +28,20 @@ Testez ces requêtes pour vous assurer qu'elles fonctionnent correctement avec v
 # Les requête sql nécessaire
 
 les titres et dates de sortie des films du plus récent au plus ancien: 
+
 SELECT title, releaseDate FROM movies ORDER BY releaseDate DESC;
 
 les noms, prénoms et âges des acteurs/actrices de plus de 30 ans dans l'ordre alphabétique:
+
 SELECT lastName, firstName, TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) AS age FROM actors WHERE TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) > 30 ORDER BY lastName, firstName;
 
 
 la liste des acteurs/actrices principaux pour un film donné :
+
 SELECT actors.lastName, actors.firstName FROM actors INNER JOIN plays_in ON actors.Id_actors = plays_in.Id_actors INNER JOIN movies ON plays_in.Id_movies = movies.Id_movies WHERE movies.title = 'Viking’' AND plays_in.role = 'main_actor';
 
 la liste des films pour un acteur/actrice donné:
+
 SELECT movies.title
 FROM movies
 INNER JOIN plays_in ON movies.Id_movies = plays_in.Id_movies
