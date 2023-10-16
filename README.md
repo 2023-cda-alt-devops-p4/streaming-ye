@@ -7,7 +7,7 @@ Commencez par élaborer votre dictionnaire de données pour définir la structur
 créez ensuite le modèle conceptuel de données (MCD), suivi du modèle logique de données (MLD) et enfin du modèle physique de données (MPD).
 
 ![Alt text](MCD/MLD/Merise1.png)
-![Alt text](MCD/MLD/Merise2.png)
+![Alt text](MCD/MLD/MCD.png)
 ![Alt text](MCD/MLD/Mpd.png)
 
 # Étape 2 : Configuration de MySQL avec Docker
