@@ -19,7 +19,8 @@ Allez sur Docker Hub pour récupérer l'image de MySQL en utilisant la commande 
 
 Créez votre base de données (BDD) en utilisant des requête sql.
 
-``` CREATE TABLE movies(
+```
+CREATE TABLE movies(
    Id_movies INT AUTO_INCREMENT,
    title VARCHAR(50)  NOT NULL,
    length TIME NOT NULL,
@@ -93,12 +94,92 @@ CREATE TABLE prefer(
    PRIMARY KEY(Id_movies, Id_users),
    FOREIGN KEY(Id_movies) REFERENCES movies(Id_movies),
    FOREIGN KEY(Id_users) REFERENCES users(Id_users)
-); ```
+);
+ ```
 
 
 # Étape 4 : Remplissage de la Base de Données
 
 Utilisez un jeu de données fictif (mock) pour remplir la base de données avec des données d'exemple.
+```
+Acctors
+
+insert into actors (id_actors, lastName, firstName, birthDate) values (1, 'Nola', 'Allsop', '2022-01-05');
+insert into actors (id_actors, lastName, firstName, birthDate) values (2, 'Maris', 'Durden', '1975-09-09');
+insert into actors (id_actors, lastName, firstName, birthDate) values (3, 'Murielle', 'Corradino', '1990-04-17');
+insert into actors (id_actors, lastName, firstName, birthDate) values (4, 'Marcelia', 'Le Batteur', '2013-10-07');
+insert into actors (id_actors, lastName, firstName, birthDate) values (5, 'Mathian', 'Pentland', '1994-01-27');
+insert into actors (id_actors, lastName, firstName, birthDate) values (6, 'Brenna', 'Smallshaw', '2016-12-26');
+insert into actors (id_actors, lastName, firstName, birthDate) values (7, 'Newton', 'McGray', '1984-06-26');
+insert into actors (id_actors, lastName, firstName, birthDate) values (8, 'Murvyn', 'Gillbee', '1986-05-28');
+insert into actors (id_actors, lastName, firstName, birthDate) values (9, 'Berke', 'Sobieski', '2011-08-01');
+insert into actors (id_actors, lastName, firstName, birthDate) values (10, 'Christoforo', 'Ramsted', '2008-07-28');
+
+——————————————————————————————  
+Movies
+ insert into movies (id_movies, title, length, releaseDate) values (1, 'Boy, Did I Get a Wrong Number!', 1, '2001-03-19');
+insert into movies (id_movies, title, length, releaseDate) values (2, 'You', 2, '2022-10-27');
+insert into movies (id_movies, title, length, releaseDate) values (3, 'Eversmile, New Jersey', 3, '2023-09-19');
+insert into movies (id_movies, title, length, releaseDate) values (4, 'Friends of Eddie Coyle, The', 4, '2015-11-19');
+insert into movies (id_movies, title, length, releaseDate) values (5, 'Fire with Fire', 5, '1998-10-29');
+insert into movies (id_movies, title, length, releaseDate) values (6, 'Bells of St. Mary''s, The', 6, '2022-03-31');
+insert into movies (id_movies, title, length, releaseDate) values (7, 'You Kill Me', 7, '1993-03-20');
+insert into movies (id_movies, title, length, releaseDate) values (8, 'Hatchet II', 8, '2019-03-17');
+insert into movies (id_movies, title, length, releaseDate) values (9, 'All at Sea', 9, '1994-11-26');
+insert into movies (id_movies, title, length, releaseDate) values (10, 'Boy Interrupted', 10, '2013-02-22');
+
+——————————————————————————————
+
+Directors
+
+insert into directors (id_directors, lastName, firstName) values (1, 'Benedicto', 'Redsull');
+insert into directors (id_directors, lastName, firstName) values (2, 'Tann', 'Woolbrook');
+insert into directors (id_directors, lastName, firstName) values (3, 'Minerva', 'Downes');
+insert into directors (id_directors, lastName, firstName) values (4, 'Willyt', 'Durant');
+insert into directors (id_directors, lastName, firstName) values (5, 'Chiquita', 'Ever');
+insert into directors (id_directors, lastName, firstName) values (6, 'Beryl', 'Ivan');
+insert into directors (id_directors, lastName, firstName) values (7, 'Tabatha', 'Jozefczak');
+insert into directors (id_directors, lastName, firstName) values (8, 'Ingamar', 'Brailsford');
+insert into directors (id_directors, lastName, firstName) values (9, 'Richardo', 'Gottschalk');
+insert into directors (id_directors, lastName, firstName) values (10, 'Kanya', 'Massingberd');  ——————————————————————————  Roles
+
+insert into roles (id_roles, role) values (1, ‘admin’);
+insert into roles (id_roles, role) values (2, ‘user’);
+
+—————————————————
+Users
+
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (1, 'Dorry', 'dkanzler0@spiegel.de', 'yY4fYVqcxfNF', 'Kanzler', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (2, 'Rebekah', 'rlowdes1@vk.com', 'sZ0_~XkgNbjfBM', 'Lowdes', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (3, 'Cleveland', 'cbromehed2@epa.gov', 'sS3@E9KU1c5C1>x', 'Bromehed', 31);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (4, 'Korrie', 'kgilliver3@scientificamerican.com', 'bQ6?UL?u!1C6Z/K', 'Gilliver', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (5, 'Janos', 'jwrenn4@webnode.com', 'nQ2_E!i=S>,`n', 'Wrenn', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (6, 'Somerset', 'sdaubney5@ca.gov', 'qQ9H%4#*PP', 'D''Aubney', 2);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (7, 'Angeli', 'aughetti6@1688.com', 'lB5Yo$g<a&*', 'Ughetti', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (8, 'Alleyn', 'aleishman7@printfriendly.com', 'vU45!Pn{', 'Leishman', 1);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (9, 'Tammi', 'tfonzo8@imgur.com', 'cG2t>tq0', 'Fonzo', 2);
+insert into users (id_users, firstName, email, password, lastName, id_roles) values (10, 'Mallorie', 'mcolman9@house.gov', 'zO8).Owm', 'Colman', 1);
+
+————————————————————
+
+Archives
+
+TRIGGER
+
+———————————————————————
+
+Plays in 
+insert into plays_in (id_movies, id_actors, role) values (2, 2, ‘main_actor’);
+insert into plays_in (id_movies, id_actors, role) values (3, 3, ‘secondary_actor’);
+insert into plays_in (id_movies, id_actors, role) values (4, 4, ‘main_actor’);
+insert into plays_in (id_movies, id_actors, role) values (5, 5, ’secondary_actor’);
+insert into plays_in (id_movies, id_actors, role) values (6, 6, 'main_actor');
+insert into plays_in (id_movies, id_actors, role) values (7, 7, 'secondary_actor');
+insert into plays_in (id_movies, id_actors, role) values (8, 8, 'main_actor);
+insert into plays_in (id_movies, id_actors, role) values (9, 9, 'secondary_actor');
+insert into plays_in (id_movies, id_actors, role) values (10, 10, 'main_actor'); 
+
+```
 
 # Étape 5 : Écriture et Test des Requêtes
 
