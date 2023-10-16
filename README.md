@@ -16,11 +16,18 @@ allez sur le terminal puis taper cette commande:
 
 ``` docker exec -it streaming-db mysql --password ```
 
+``` CREATE DATABASE streaming; ```
+
+```USE streaming;```
+
+
+
 # Étape 3 : Création de la Base de Données
 
-Créez votre base de données (BDD) en utilisant des requête sql.
+Créez votre base de données (BDD) en utilisant ce script sql.
 
-```
+``` SQL
+
 CREATE TABLE movies(
    Id_movies INT AUTO_INCREMENT,
    title VARCHAR(50)  NOT NULL,
@@ -102,8 +109,8 @@ CREATE TABLE prefer(
 # Étape 4 : Remplissage de la Base de Données
 
 Utilisez un jeu de données fictif (mock) pour remplir la base de données avec des données d'exemple.
-```
-Acctors
+```SQL
+
 
 insert into actors (id_actors, lastName, firstName, birthDate) values (1, 'Nola', 'Allsop', '2022-01-05');
 insert into actors (id_actors, lastName, firstName, birthDate) values (2, 'Maris', 'Durden', '1975-09-09');
@@ -115,9 +122,6 @@ insert into actors (id_actors, lastName, firstName, birthDate) values (7, 'Newto
 insert into actors (id_actors, lastName, firstName, birthDate) values (8, 'Murvyn', 'Gillbee', '1986-05-28');
 insert into actors (id_actors, lastName, firstName, birthDate) values (9, 'Berke', 'Sobieski', '2011-08-01');
 insert into actors (id_actors, lastName, firstName, birthDate) values (10, 'Christoforo', 'Ramsted', '2008-07-28');
-
-—————————————————————————————— 
-Movies
 insert into movies (id_movies, title, length, releaseDate) values (1, 'Boy, Did I Get a Wrong Number!', 1, '2001-03-19');
 insert into movies (id_movies, title, length, releaseDate) values (2, 'You', 2, '2022-10-27');
 insert into movies (id_movies, title, length, releaseDate) values (3, 'Eversmile, New Jersey', 3, '2023-09-19');
@@ -128,11 +132,6 @@ insert into movies (id_movies, title, length, releaseDate) values (7, 'You Kill 
 insert into movies (id_movies, title, length, releaseDate) values (8, 'Hatchet II', 8, '2019-03-17');
 insert into movies (id_movies, title, length, releaseDate) values (9, 'All at Sea', 9, '1994-11-26');
 insert into movies (id_movies, title, length, releaseDate) values (10, 'Boy Interrupted', 10, '2013-02-22');
-
-——————————————————————————————
-
-Directors
-
 insert into directors (id_directors, lastName, firstName) values (1, 'Benedicto', 'Redsull');
 insert into directors (id_directors, lastName, firstName) values (2, 'Tann', 'Woolbrook');
 insert into directors (id_directors, lastName, firstName) values (3, 'Minerva', 'Downes');
@@ -143,13 +142,8 @@ insert into directors (id_directors, lastName, firstName) values (7, 'Tabatha', 
 insert into directors (id_directors, lastName, firstName) values (8, 'Ingamar', 'Brailsford');
 insert into directors (id_directors, lastName, firstName) values (9, 'Richardo', 'Gottschalk');
 insert into directors (id_directors, lastName, firstName) values (10, 'Kanya', 'Massingberd');——————————————————————————Roles
-
 insert into roles (id_roles, role) values (1, ‘admin’);
 insert into roles (id_roles, role) values (2, ‘user’);
-
-—————————————————
-Users
-
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (1, 'Dorry', 'dkanzler0@spiegel.de', 'yY4fYVqcxfNF', 'Kanzler', 1);
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (2, 'Rebekah', 'rlowdes1@vk.com', 'sZ0_~XkgNbjfBM', 'Lowdes', 1);
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (3, 'Cleveland', 'cbromehed2@epa.gov', 'sS3@E9KU1c5C1>x', 'Bromehed', 31);
@@ -160,16 +154,7 @@ insert into users (id_users, firstName, email, password, lastName, id_roles) val
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (8, 'Alleyn', 'aleishman7@printfriendly.com', 'vU45!Pn{', 'Leishman', 1);
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (9, 'Tammi', 'tfonzo8@imgur.com', 'cG2t>tq0', 'Fonzo', 2);
 insert into users (id_users, firstName, email, password, lastName, id_roles) values (10, 'Mallorie', 'mcolman9@house.gov', 'zO8).Owm', 'Colman', 1);
-
-————————————————————
-
-Archives
-
-TRIGGER
-
-———————————————————————
-
-Plays in
+insert into plays_in (id_movies, id_actors, role) values (1, 1, ‘main_actor’);
 insert into plays_in (id_movies, id_actors, role) values (2, 2, ‘main_actor’);
 insert into plays_in (id_movies, id_actors, role) values (3, 3, ‘secondary_actor’);
 insert into plays_in (id_movies, id_actors, role) values (4, 4, ‘main_actor’);
@@ -282,3 +267,4 @@ END;
 //
 DELIMITER ;
 ```
+pour dbeaver mysql
