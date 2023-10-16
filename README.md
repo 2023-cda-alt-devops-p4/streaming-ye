@@ -8,6 +8,7 @@ créez ensuite le modèle conceptuel de données (MCD), suivi du modèle logique
 
 ![Alt text](MCD/MLD/Merise1.png)
 ![Alt text](MCD/MLD/Merise2.png)
+![Alt text](MCD/MLD/Mpd.png)
 
 # Étape 2 : Configuration de MySQL avec Docker
 
@@ -115,9 +116,9 @@ insert into actors (id_actors, lastName, firstName, birthDate) values (8, 'Murvy
 insert into actors (id_actors, lastName, firstName, birthDate) values (9, 'Berke', 'Sobieski', '2011-08-01');
 insert into actors (id_actors, lastName, firstName, birthDate) values (10, 'Christoforo', 'Ramsted', '2008-07-28');
 
-——————————————————————————————  
+—————————————————————————————— 
 Movies
- insert into movies (id_movies, title, length, releaseDate) values (1, 'Boy, Did I Get a Wrong Number!', 1, '2001-03-19');
+insert into movies (id_movies, title, length, releaseDate) values (1, 'Boy, Did I Get a Wrong Number!', 1, '2001-03-19');
 insert into movies (id_movies, title, length, releaseDate) values (2, 'You', 2, '2022-10-27');
 insert into movies (id_movies, title, length, releaseDate) values (3, 'Eversmile, New Jersey', 3, '2023-09-19');
 insert into movies (id_movies, title, length, releaseDate) values (4, 'Friends of Eddie Coyle, The', 4, '2015-11-19');
@@ -141,7 +142,7 @@ insert into directors (id_directors, lastName, firstName) values (6, 'Beryl', 'I
 insert into directors (id_directors, lastName, firstName) values (7, 'Tabatha', 'Jozefczak');
 insert into directors (id_directors, lastName, firstName) values (8, 'Ingamar', 'Brailsford');
 insert into directors (id_directors, lastName, firstName) values (9, 'Richardo', 'Gottschalk');
-insert into directors (id_directors, lastName, firstName) values (10, 'Kanya', 'Massingberd');  ——————————————————————————  Roles
+insert into directors (id_directors, lastName, firstName) values (10, 'Kanya', 'Massingberd');——————————————————————————Roles
 
 insert into roles (id_roles, role) values (1, ‘admin’);
 insert into roles (id_roles, role) values (2, ‘user’);
@@ -168,7 +169,7 @@ TRIGGER
 
 ———————————————————————
 
-Plays in 
+Plays in
 insert into plays_in (id_movies, id_actors, role) values (2, 2, ‘main_actor’);
 insert into plays_in (id_movies, id_actors, role) values (3, 3, ‘secondary_actor’);
 insert into plays_in (id_movies, id_actors, role) values (4, 4, ‘main_actor’);
@@ -177,7 +178,7 @@ insert into plays_in (id_movies, id_actors, role) values (6, 6, 'main_actor');
 insert into plays_in (id_movies, id_actors, role) values (7, 7, 'secondary_actor');
 insert into plays_in (id_movies, id_actors, role) values (8, 8, 'main_actor);
 insert into plays_in (id_movies, id_actors, role) values (9, 9, 'secondary_actor');
-insert into plays_in (id_movies, id_actors, role) values (10, 10, 'main_actor'); 
+insert into plays_in (id_movies, id_actors, role) values (10, 10, 'main_actor');
 
 ```
 
