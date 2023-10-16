@@ -12,9 +12,9 @@ créez ensuite le modèle conceptuel de données (MCD), suivi du modèle logique
 
 # Étape 2 : Configuration de MySQL avec Docker
 
-Allez sur Docker Hub pour récupérer l'image de MySQL en utilisant la commande suivante : 
+allez sur le terminal puis taper cette commande:
 
-``` docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag ```
+``` docker exec -it streaming-db mysql --password ```
 
 # Étape 3 : Création de la Base de Données
 
