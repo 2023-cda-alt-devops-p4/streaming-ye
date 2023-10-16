@@ -258,14 +258,12 @@ BEGIN
   INNER JOIN directs ON movies.Id_movies = directs.Id_movies
   INNER JOIN directors ON directs.Id_directors = directors.Id_directors
   WHERE directors.lastName = directorName;
-END;'
+END;
 //
 DELIMITER ;
 ```
-
 CALL ListMoviesByDirector('Nom du réalisateur');
-```SQL
-
+``` SQL
 DELIMITER //
 CREATE TRIGGER UserUpdateTrigger
 AFTER UPDATE ON users
@@ -277,4 +275,7 @@ END;
 //
 DELIMITER ;
 ```
+
+
+
 pour dbeaver mysql
