@@ -282,9 +282,6 @@ END;
 DELIMITER ;
 ```
 
-
-# Docker Hub 
-https://hub.docker.com/r/yassineelz/streaming-image-ye)https://hub.docker.com/r/yassineelz/streaming-image-ye
  
 
 
