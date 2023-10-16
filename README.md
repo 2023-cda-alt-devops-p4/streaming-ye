@@ -13,11 +13,88 @@ créez ensuite le modèle conceptuel de données (MCD), suivi du modèle logique
 
 Allez sur Docker Hub pour récupérer l'image de MySQL en utilisant la commande suivante : 
 
-```bash docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag ```
+``` docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag ```
 
 # Étape 3 : Création de la Base de Données
 
-Créez votre base de données (BDD) en utilisant MySQL.
+Créez votre base de données (BDD) en utilisant des requête sql.
+
+``` CREATE TABLE movies(
+   Id_movies INT AUTO_INCREMENT,
+   title VARCHAR(50)  NOT NULL,
+   length TIME NOT NULL,
+   releaseDate DATE NOT NULL,
+   PRIMARY KEY(Id_movies)
+);
+
+CREATE TABLE directors(
+   Id_directors INT AUTO_INCREMENT,
+   lastName VARCHAR(50)  NOT NULL,
+   firstName VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(Id_directors)
+);
+
+CREATE TABLE actors(
+   Id_actors INT AUTO_INCREMENT,
+   lastName VARCHAR(50)  NOT NULL,
+   firstName VARCHAR(50)  NOT NULL,
+   birthDate DATE NOT NULL,
+   PRIMARY KEY(Id_actors)
+);
+
+CREATE TABLE roles(
+   Id_roles INT AUTO_INCREMENT,
+   role VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(Id_roles),
+   UNIQUE(role)
+);
+
+CREATE TABLE users(
+   Id_users INT AUTO_INCREMENT,
+   firstName VARCHAR(50)  NOT NULL,
+   email VARCHAR(50)  NOT NULL,
+   password VARCHAR(50)  NOT NULL,
+   lastName VARCHAR(50)  NOT NULL,
+   Id_roles INT NOT NULL,
+   PRIMARY KEY(Id_users),
+   FOREIGN KEY(Id_roles) REFERENCES roles(Id_roles)
+);
+
+CREATE TABLE archives(
+   Id_archives INT AUTO_INCREMENT,
+   updateDate DATE NOT NULL,
+   oldValue VARCHAR(50)  NOT NULL,
+   newValue VARCHAR(50)  NOT NULL,
+   Id_users INT NOT NULL,
+   PRIMARY KEY(Id_archives),
+   FOREIGN KEY(Id_users) REFERENCES users(Id_users)
+);
+
+CREATE TABLE plays_in(
+   Id_movies INT,
+   Id_actors INT,
+   role VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(Id_movies, Id_actors),
+   FOREIGN KEY(Id_movies) REFERENCES movies(Id_movies),
+   FOREIGN KEY(Id_actors) REFERENCES actors(Id_actors)
+);
+
+CREATE TABLE directs(
+   Id_movies INT,
+   Id_directors INT,
+   PRIMARY KEY(Id_movies, Id_directors),
+   FOREIGN KEY(Id_movies) REFERENCES movies(Id_movies),
+   FOREIGN KEY(Id_directors) REFERENCES directors(Id_directors)
+);
+
+CREATE TABLE prefer(
+   Id_movies INT,
+   Id_users INT,
+   PRIMARY KEY(Id_movies, Id_users),
+   FOREIGN KEY(Id_movies) REFERENCES movies(Id_movies),
+   FOREIGN KEY(Id_users) REFERENCES users(Id_users)
+); ```
+
 
 # Étape 4 : Remplissage de la Base de Données
 
