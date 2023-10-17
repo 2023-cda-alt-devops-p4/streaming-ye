@@ -276,6 +276,3 @@ END;
 DELIMITER ;
 ```
 
-
-
-pour dbeaver mysql
